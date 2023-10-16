@@ -21,13 +21,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "import",
-    "react-hooks",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "import", "react-hooks", "prettier"],
   "rules": {
     "import/no-duplicates": "error",
     "import/no-self-import": "error",
@@ -52,6 +46,7 @@
 
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "react/prop-types": "warn",
 
     "no-console": "warn",
 
