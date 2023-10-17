@@ -5,10 +5,12 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 type Props = {
   title?: string;
   list?: M3uMedia[];
+
+  onClick?: (url: string) => void;
 };
 
 const M3uRadio = (props: Props) => {
-  const { title, list } = props;
+  const { title, list, onClick } = props;
   return (
     <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex items-center justify-between mb-4">
@@ -16,13 +18,15 @@ const M3uRadio = (props: Props) => {
       </div>
       <div className="flow-root">
         <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-          <ScrollArea className="h-[300px]">
+          <ScrollArea className="h-[500px]">
             {list?.map((item) => {
               return (
                 <li
                   key={item.name}
                   className="py-3 sm:py-4 cursor-pointer hover:bg-slate-50"
-                  onClick={() => console.log(item.location)}
+                  onClick={() => {
+                    onClick?.(item.location);
+                  }}
                 >
                   <div className="flex items-center space-x-4">
                     <div className="flex-shrink-0">
